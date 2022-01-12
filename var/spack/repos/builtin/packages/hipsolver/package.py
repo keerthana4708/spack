@@ -20,11 +20,12 @@ class Hipsolver(CMakePackage):
 
     maintainers = ['srekolam']
 
+    version('master', branch='master')
     version('4.5.0', sha256='ee1176e977736a6e6fcba507fe6f56fcb3cefd6ba741cceb28464ea8bc476cd8')
 
     variant('build_type', default='Release', values=("Release", "Debug", "RelWithDebInfo"), description='CMake build type')
 
-    for ver in ['4.5.0']:
+    for ver in ['4.5.0','master']:
         depends_on('hip@' + ver, when='@' + ver)
         depends_on('rocblas@' + ver, when='@' + ver)
         depends_on('rocsolver@' + ver, when='@' + ver)
