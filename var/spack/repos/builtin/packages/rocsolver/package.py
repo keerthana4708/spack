@@ -88,7 +88,7 @@ class Rocsolver(CMakePackage):
         if self.spec.satisfies('^cmake@3.21.0:3.21.2'):
             args.append(self.define('__skip_rocmclang', 'ON'))
 
-        if self.spec.satisfies('@4.5.0:')
+        if self.spec.satisfies('@4.5.0:'):
             args.append(self.define('ROCSOLVER_EMBED_FMT', 'ON'))
 
         return args
