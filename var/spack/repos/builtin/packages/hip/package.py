@@ -20,6 +20,7 @@ class Hip(CMakePackage):
 
     maintainers = ['srekolam', 'arjun-raj-kuppala', 'haampie']
     version('master', branch='master')
+    version('4.5.2', sha256='c2113dc3c421b8084cd507d91b6fbc0170765a464b71fb0d96bb875df368f160')
     version('4.5.0', sha256='4026f31fb4f8050e9aa9d4294f29c3410bfb38422dbbae4236ccd65fed4d55b2')
     version('4.3.1', sha256='955311193819f487f9a2d64bffe07c4b8c3a0dc644dc3ad984f7c66a325bdd6f')
     version('4.3.0', sha256='293b5025b5e153f2f25e465a2e0006a2b4606db7b7ec2ae449f8a4c0b52d491b')
@@ -42,7 +43,7 @@ class Hip(CMakePackage):
                 '4.2.0', '4.3.0', '4.3.1']:
         depends_on('hip-rocclr@' + ver, when='@' + ver)
     for ver in ['3.5.0', '3.7.0', '3.8.0', '3.9.0', '3.10.0', '4.0.0', '4.1.0',
-                '4.2.0', '4.3.0', '4.3.1', '4.5.0','master']:
+                '4.2.0', '4.3.0', '4.3.1', '4.5.0', '4.5.2','master']:
         depends_on('hsakmt-roct@' + ver, when='@' + ver)
         depends_on('hsa-rocr-dev@' + ver, when='@' + ver)
         depends_on('comgr@' + ver, when='@' + ver)
@@ -56,6 +57,7 @@ class Hip(CMakePackage):
 
     # Add hip-amd sources thru the below
     for d_version, d_shasum in [
+        ('4.5.2', 'b6f35b1a1d0c466b5af28e26baf646ae63267eccc4852204db1e0c7222a39ce2'),
         ('4.5.0', '7b93ab64d6894ff9b5ba0be35e3ed8501d6b18a2a14223d6311d72ab8a9cdba6')
     ]:
         resource(
@@ -69,6 +71,7 @@ class Hip(CMakePackage):
         )
     # Add opencl sources thru the below
     for d_version, d_shasum in [
+        ('4.5.2',  '96b43f314899707810db92149caf518bdb7cf39f7c0ad86e98ad687ffb0d396d'),
         ('4.5.0',  '3a163aed24619b3faf5e8ba17325bdcedd1667a904ea20914ac6bdd33fcdbca8')
     ]:
         resource(
@@ -81,6 +84,7 @@ class Hip(CMakePackage):
             when='@{0}'.format(d_version)
         )
     for d_version, d_shasum in [
+        ('4.5.2',  '6581916a3303a31f76454f12f86e020fb5e5c019f3dbb0780436a8f73792c4d1'),
         ('4.5.0',  'ca8d6305ff0e620d9cb69ff7ac3898917db9e9b6996a7320244b48ab6511dd8e')
     ]:
         resource(
