@@ -49,11 +49,11 @@ class Atmi(CMakePackage):
     patch('0001-Remove-relative-link-paths-to-external-libraries.patch', when='@3.5.0')
     patch('0002-Remove-usr-bin-rsync-reference.patch', when='@4.0.0:')
 
-    if version !='master': 
-        def cmake_args(self):
-            return [
-                '-DROCM_VERSION={0}'.format(self.spec.version)
-                ]
+    def cmake_args(self):
+            if not self.spec.satisfies('@master'):
+                return ['-DROCM_VERSION={0}'.format(self.spec.version)]
+            else :
+                return std_cmake_args
 
     @run_after('install')
     def install_stub(self):
