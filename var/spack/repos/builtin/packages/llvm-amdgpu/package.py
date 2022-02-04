@@ -65,6 +65,7 @@ class LlvmAmdgpu(CMakePackage):
 
     # This is already fixed in upstream but not in 4.2.0 rocm release
     patch('fix-spack-detection-4.2.0.patch', when='@4.2.0:4.5.2')
+    patch('fix-spack-detection-4.2.0.patch', when='@master')
 
     conflicts('^cmake@3.19.0')
 
