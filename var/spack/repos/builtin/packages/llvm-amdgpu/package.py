@@ -35,7 +35,7 @@ class LlvmAmdgpu(CMakePackage):
 
     variant('build_type', default='Release', values=("Release", "Debug", "RelWithDebInfo"), description='CMake build type')
     variant('rocm-device-libs', default=True, description='Build ROCm device libs as external LLVM project instead of a standalone spack package.')
-    variant('openmp', default=True, description='Enable OpenMP')
+    variant('openmp', default=False, description='Enable OpenMP')
     variant(
         "llvm_dylib",
         default=False,
@@ -65,7 +65,6 @@ class LlvmAmdgpu(CMakePackage):
 
     # This is already fixed in upstream but not in 4.2.0 rocm release
     patch('fix-spack-detection-4.2.0.patch', when='@4.2.0:4.5.2')
-    patch('fix-spack-detection-4.2.0.patch', when='@master')
 
     conflicts('^cmake@3.19.0')
 
