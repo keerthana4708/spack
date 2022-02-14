@@ -81,6 +81,7 @@ class LlvmAmdgpu(CMakePackage):
     root_cmakelists_dir = 'llvm'
     install_targets = ['clang-tidy', 'install']
 
+    # added for testing
     # Add device libs sources so they can be an external LLVM project
     for d_version, d_shasum in [
         ('4.5.2',  '50e9e87ecd6b561cad0d471295d29f7220e195528e567fcabe2ec73838979f61'),
