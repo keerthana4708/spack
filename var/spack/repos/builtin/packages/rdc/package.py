@@ -52,6 +52,7 @@ class Rdc(CMakePackage):
             '{0}/bin/protoc'.format(self.spec['protobuf'].prefix),
             'CMakeLists.txt', string=True)
 
+    # adding for testing
     def cmake_args(self):
         rpath = self.rpath
         rpath.append(self.prefix.opt.rocm.rdc.lib)
